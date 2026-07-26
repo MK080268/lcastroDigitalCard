@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Imóvel Exclusivo | Excelcium Imóveis</title>
+  <meta name="description" content="Apartamento de alto padrão em localização privilegiada. Conheça este imóvel exclusivo curado pela Excelcium Imóveis.">
+  <meta property="og:title" content="Imóvel Exclusivo | Excelcium Imóveis">
+  <meta property="og:description" content="Apartamento de alto padrão. Solicite informações exclusivas.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.postimg.cc/nV7m3FPf/logo-2.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI'); /* ← Substitua pelo Pixel ID */
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    /* ================================================
+       VARIÁVEIS & RESET
+    ================================================ */
+    :root {
+      --gold:         #a17736;
+      --gold-light:   #c9a060;
+      --gold-pale:    #e8d5b0;
+      --bg:           #0c0b0a;
+      --surface:      #131210;
+      --surface-2:    #1b1916;
+      --surface-3:    #22201c;
+      --border:       #2a2722;
+      --text:         #f0ebe4;
+      --text-soft:    #c8bfb5;
+      --text-muted:   #9a9088;
+      --white:        #ffffff;
+      --radius:       4px;
+      --radius-lg:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    /* ================================================
+       ANIMAÇÕES DE ENTRADA
+    ================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+
+    /* ================================================
+       CONTAINER
+    ================================================ */
+    .container {
+      width: 100%;
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* ================================================
+       LABELS DE SEÇÃO
+    ================================================ */
+    .section-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* ================================================
+       STICKY CTA BAR — mobile
+    ================================================ */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(12,11,10,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px 10px;
+      display: flex;
+      gap: 10px;
+    }
+    .sticky-bar a {
+      flex: 1;
+      text-align: center;
+      padding: 13px 8px;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .sticky-bar .s-primary { background: var(--gold); color: var(--bg); }
+    .sticky-bar .s-wpp { background: transparent; color: var(--gold-light); border: 1px solid var(--gold); }
+
+    /* ================================================
+       HERO
+    ================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80')
+        center / cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        170deg,
+        rgba(12,11,10,0.08) 0%,
+        rgba(12,11,10,0.18) 35%,
+        rgba(12,11,10,0.72) 65%,
+        rgba(12,11,10,0.97) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 48px 22px 128px;
+      max-width: 660px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(161,119,54,0.14);
+      border: 1px solid rgba(161,119,54,0.32);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      animation: blink 2.2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 7.5vw, 46px);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+
+    .hero-sub {
+      font-size: 14.5px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 380px;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 17px 34px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.22s, transform 0.14s, box-shadow 0.22s;
+      box-shadow: 0 4px 24px rgba(161,119,54,0.25);
+    }
+    .btn-hero:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 32px rgba(161,119,54,0.35); }
+    .btn-hero svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* ================================================
+       FEATURES / DESTAQUES
+    ================================================ */
+    .features-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 0;
+    }
+
+    .features-header { text-align: center; margin-bottom: 32px; }
+    .features-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .feat {
+      background: var(--surface-2);
+      padding: 22px 12px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .feat:hover { background: var(--surface-3); }
+
+    .feat-icon {
+      width: 38px; height: 38px;
+      margin: 0 auto 10px;
+      background: rgba(161,119,54,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feat-icon svg {
+      width: 17px; height: 17px;
+      stroke: var(--gold-light);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .feat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ================================================
+       GALERIA
+    ================================================ */
+    .gallery-section { padding: 56px 0; }
+    .gallery-section .container { margin-bottom: 20px; }
+
+    .gallery-track {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 22px 8px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-track:active { cursor: grabbing; }
+
+    .gallery-item {
+      flex: 0 0 76vw;
+      max-width: 310px;
+      scroll-snap-align: start;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface-2);
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 7px 12px;
+      background: linear-gradient(transparent, rgba(12,11,10,0.78));
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 14px;
+    }
+    .g-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.22s, width 0.22s;
+      cursor: pointer;
+      border: none;
+    }
+    .g-dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
+
+    /* ================================================
+       DESCRIÇÃO
+    ================================================ */
+    .desc-section {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+    .desc-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .desc-divider {
+      width: 36px; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 18px;
+    }
+    .desc-section p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text-soft);
+    }
+
+    /* ================================================
+       AUTORIDADE EXCELCIUM
+    ================================================ */
+    .authority-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 0;
+    }
+    .authority-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .auth-logo-box {
+      width: 50px; height: 50px;
+      background: rgba(161,119,54,0.1);
+      border: 1px solid rgba(161,119,54,0.22);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .auth-logo-box img { width: 34px; height: 34px; object-fit: contain; }
+    .auth-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .auth-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 0.07em; }
+
+    .authority-quote {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-soft);
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+      margin-bottom: 28px;
+    }
+
+    .authority-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .a-stat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .a-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ================================================
+       FORMULÁRIO
+    ================================================ */
+    .form-section { padding: 64px 0 32px; }
+
+    .form-header { margin-bottom: 30px; }
+    .form-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .form-header p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
+
+    .lead-form { display: flex; flex-direction: column; gap: 14px; }
+
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-field input,
+    .form-field select {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-field input::placeholder { color: var(--text-muted); }
+    .form-field input:focus,
+    .form-field select:focus {
+      border-color: var(--gold);
+      background: var(--surface-3);
+    }
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239a9088' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 44px;
+      cursor: pointer;
+    }
+    .form-field select option { background: var(--surface-2); color: var(--text); }
+    .opt-label { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 10px; }
+
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 18px 32px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      width: 100%;
+      margin-top: 6px;
+      transition: background 0.22s, transform 0.14s, box-shadow 0.22s;
+      box-shadow: 0 4px 24px rgba(161,119,54,0.22);
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 32px rgba(161,119,54,0.3); }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn-submit svg { width: 15px; height: 15px; }
+
+    /* Form Success */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 52px 20px;
+    }
+    .form-success.show { display: block; }
+    .success-icon {
+      width: 64px; height: 64px;
+      background: rgba(161,119,54,0.1);
+      border: 1px solid rgba(161,119,54,0.28);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .success-icon svg { width: 26px; height: 26px; stroke: var(--gold-light); fill: none; stroke-width: 2.2; }
+    .form-success h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .form-success p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ================================================
+       WHATSAPP ALTERNATIVO
+    ================================================ */
+    .wpp-section {
+      padding: 28px 0 0;
+      border-top: 1px solid var(--border);
+    }
+    .wpp-section p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .btn-wpp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 15px 24px;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-wpp:hover { background: rgba(161,119,54,0.08); }
+    .btn-wpp svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ================================================
+       MENSAGEM DE POSICIONAMENTO
+    ================================================ */
+    .positioning-section { padding: 24px 0 56px; }
+    .pos-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .pos-box p {
+      font-size: 13px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ================================================
+       FOOTER
+    ================================================ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0 110px; /* extra para sticky bar */
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .footer-info { font-size: 11.5px; color: var(--text-muted); line-height: 1.7; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 16px;
+    }
+    .footer-links a {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    /* ================================================
+       RESPONSIVO DESKTOP
+    ================================================ */
+    @media (min-width: 680px) {
+      .sticky-bar { display: none; }
+      footer { padding-bottom: 48px; }
+      .features-grid { grid-template-columns: repeat(6,1fr); }
+      .gallery-item { flex: 0 0 42vw; max-width: 340px; }
+      .hero-content { padding-bottom: 80px; }
+    }
+    @media (max-width: 380px) {
+      .features-grid { grid-template-columns: repeat(2,1fr); }
+      .hero h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================
+       STICKY BAR — mobile
+  ====================================================== -->
+  <div class="sticky-bar">
+    <a href="#formulario" class="s-primary">Receber informações</a>
+    <a href="https://wa.me/5531998690926?text=Ol%C3%A1!%20Vi%20o%20im%C3%B3vel%20no%20an%C3%BAncio%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+       class="s-wpp" id="stickyWpp">WhatsApp</a>
+  </div>
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Imóvel em Destaque</div>
+      <h1>Uma oportunidade <em>incomum</em><br>em endereço privilegiado</h1>
+      <p class="hero-sub">
+        Apartamento de alto padrão na Savassi, Belo Horizonte. Acabamento sofisticado,
+        varanda gourmet e lazer completo — 180 m² de excelência.
+      </p>
+      <a href="#formulario" class="btn-hero">
+        Receber informações
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       DESTAQUES DO IMÓVEL
+  ====================================================== -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-header fade-up">
+        <div class="section-label">Características</div>
+        <h2>Detalhes que fazem a diferença</h2>
+      </div>
+      <div class="features-grid fade-up delay-1">
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="feat-value">180</div>
+          <div class="feat-label">m² privativo</div>
+        </div>
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12M2 14h20"/><rect x="7" y="8" width="4" height="6"/></svg>
+          </div>
+          <div class="feat-value">4</div>
+          <div class="feat-label">Quartos</div>
+        </div>
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 17h16M4 17V7a1 1 0 0 1 1-1h4v5H4M20 17V10a1 1 0 0 0-1-1h-4v8"/></svg>
+          </div>
+          <div class="feat-value">4</div>
+          <div class="feat-label">Suítes</div>
+        </div>
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h2l3 3v5h-5V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="feat-value">3</div>
+          <div class="feat-label">Vagas</div>
+        </div>
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="feat-value">BH</div>
+          <div class="feat-label">Savassi</div>
+        </div>
+
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="feat-value">Alto</div>
+          <div class="feat-label">Padrão</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       GALERIA
+  ====================================================== -->
+  <section class="gallery-section">
+    <div class="container fade-up">
+      <div class="section-label">Galeria de imagens</div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:600;color:var(--white);">
+        Conheça o imóvel
+      </h2>
+    </div>
+
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=640&q=75"
+             alt="Sala de estar" loading="lazy">
+        <div class="gallery-caption">Sala de estar</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=640&q=75"
+             alt="Suíte master" loading="lazy">
+        <div class="gallery-caption">Suíte master</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=640&q=75"
+             alt="Cozinha gourmet" loading="lazy">
+        <div class="gallery-caption">Cozinha gourmet</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=640&q=75"
+             alt="Varanda gourmet" loading="lazy">
+        <div class="gallery-caption">Varanda gourmet</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=640&q=75"
+             alt="Área de lazer" loading="lazy">
+        <div class="gallery-caption">Área de lazer</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="gallery-dots" id="galleryDots">
+        <button class="g-dot active" data-idx="0" aria-label="Imagem 1"></button>
+        <button class="g-dot" data-idx="1" aria-label="Imagem 2"></button>
+        <button class="g-dot" data-idx="2" aria-label="Imagem 3"></button>
+        <button class="g-dot" data-idx="3" aria-label="Imagem 4"></button>
+        <button class="g-dot" data-idx="4" aria-label="Imagem 5"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       DESCRIÇÃO
+  ====================================================== -->
+  <section class="desc-section fade-up">
+    <div class="container">
+      <div class="section-label">Sobre o imóvel</div>
+      <h2>Sofisticação com endereço</h2>
+      <div class="desc-divider"></div>
+      <p>
+        Localizado em uma das regiões mais valorizadas de Belo Horizonte, este apartamento de
+        180 m² combina arquitetura contemporânea, acabamentos de alto padrão e uma planta
+        funcional pensada para quem valoriza conforto e privacidade. A varanda gourmet com
+        vista privilegiada é o ponto focal de um imóvel que equilibra sofisticação e
+        praticidade. Com lazer completo, portaria 24 horas e posição estratégica — a poucos
+        minutos dos melhores endereços da cidade —, representa uma oportunidade rara para quem
+        busca qualidade de vida ou um ativo imobiliário de alto valor.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       AUTORIDADE EXCELCIUM
+  ====================================================== -->
+  <section class="authority-section fade-up">
+    <div class="container">
+      <div class="authority-brand">
+        <div class="auth-logo-box">
+          <img src="https://i.postimg.cc/nV7m3FPf/logo-2.png" alt="Excelcium Imóveis" loading="lazy">
+        </div>
+        <div>
+          <div class="auth-name">Excelcium Imóveis</div>
+          <div class="auth-sub">Belo Horizonte · Nova Lima</div>
+        </div>
+      </div>
+      <p class="authority-quote">
+        Atuação estratégica no mercado imobiliário de Belo Horizonte e Nova Lima,
+        com curadoria de imóveis, lançamentos e oportunidades selecionadas.
+      </p>
+      <div class="authority-stats">
+        <div>
+          <div class="a-stat-value">10+</div>
+          <div class="a-stat-label">Anos de mercado</div>
+        </div>
+        <div>
+          <div class="a-stat-value">Alto</div>
+          <div class="a-stat-label">Padrão curado</div>
+        </div>
+        <div>
+          <div class="a-stat-value">BH</div>
+          <div class="a-stat-label">e Nova Lima</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FORMULÁRIO DE CAPTAÇÃO
+  ====================================================== -->
+  <section class="form-section" id="formulario">
+    <div class="container">
+
+      <div class="form-header fade-up">
+        <div class="section-label">Atendimento personalizado</div>
+        <h2>Receba as informações completas</h2>
+        <p>Preencha o formulário e nossa equipe entrará em contato de forma personalizada e discreta.</p>
+      </div>
+
+      <!-- Formulário -->
+      <div id="formWrap">
+        <form class="lead-form fade-up delay-1" id="leadForm" novalidate>
+
+          <div class="form-field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo"
+                   required autocomplete="name">
+          </div>
+
+          <div class="form-field">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(31) 9 0000-0000"
+                   required autocomplete="tel" inputmode="tel">
+          </div>
+
+          <div class="form-field">
+            <label for="email">
+              E-mail <span class="opt-label">(opcional)</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="seuemail@email.com"
+                   autocomplete="email" inputmode="email">
+          </div>
+
+          <div class="form-field">
+            <label for="momento">Momento da busca</label>
+            <select id="momento" name="momento" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="imediato">Pronto para comprar — já decidi</option>
+              <option value="30dias">Buscando ativamente — próximos 30 dias</option>
+              <option value="90dias">Planejando para os próximos 3 meses</option>
+              <option value="investimento">Interesse como investimento</option>
+              <option value="pesquisando">Ainda pesquisando o mercado</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            Receber informações
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                 width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Estado de sucesso -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Recebemos seu interesse</h3>
+        <p>
+          Nossa equipe entrará em contato em breve com as informações completas sobre
+          este imóvel, de forma personalizada e discreta.
+        </p>
+      </div>
+
+      <!-- WhatsApp alternativo -->
+      <div class="wpp-section fade-up" id="wppSection">
+        <p>Caso deseje adiantar o atendimento, fale diretamente pelo WhatsApp.</p>
+        <a href="https://wa.me/5531998690926?text=Ol%C3%A1!%20Vi%20o%20im%C3%B3vel%20no%20an%C3%BAncio%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+           class="btn-wpp" id="wppBtn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+
+      <!-- Mensagem de posicionamento -->
+      <div class="positioning-section fade-up">
+        <div class="pos-box">
+          <p>
+            "As informações completas e a disponibilidade são apresentadas de forma personalizada,
+            garantindo mais precisão, discrição e assertividade no atendimento."
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Excelcium Imóveis</div>
+      <p class="footer-info">
+        Belo Horizonte · Nova Lima · MG<br>
+        contato@excelciumimoveis.com
+      </p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/excelciumimoveis/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://excelciumimoveis.com" target="_blank" rel="noopener">Site</a>
+        <a href="https://api.whatsapp.com/send?phone=5531998690926" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SCRIPTS
+  ====================================================== -->
+  <script>
+    /* --------------------------------------------------
+       Hero background lazy load + parallax-subtle
+    -------------------------------------------------- */
+    (function() {
+      var bg = document.getElementById('heroBg');
+      var img = new Image();
+      img.onload = function() { bg.classList.add('loaded'); };
+      img.src = 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80';
+    })();
+
+    /* --------------------------------------------------
+       IntersectionObserver — fade-up
+    -------------------------------------------------- */
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+    /* --------------------------------------------------
+       Galeria — scroll drag + dots
+    -------------------------------------------------- */
+    var track = document.getElementById('galleryTrack');
+    var dots  = document.querySelectorAll('.g-dot');
+    var isDragging = false, startX, scrollStart;
+
+    track.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollStart = track.scrollLeft;
+      track.style.userSelect = 'none';
+    });
+    document.addEventListener('mouseup', function() { isDragging = false; track.style.userSelect = ''; });
+    track.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      track.scrollLeft = scrollStart - (e.pageX - track.offsetLeft - startX) * 1.4;
+    });
+
+    function updateDots() {
+      var items = track.querySelectorAll('.gallery-item');
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var best = 0, bestDist = Infinity;
+      items.forEach(function(item, i) {
+        var d = Math.abs(item.offsetLeft + item.offsetWidth / 2 - center);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === best); });
+    }
+    track.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.idx);
+        var item = track.querySelectorAll('.gallery-item')[idx];
+        track.scrollTo({ left: item.offsetLeft - 22, behavior: 'smooth' });
+      });
+    });
+
+    /* --------------------------------------------------
+       Máscara de telefone — WhatsApp
+    -------------------------------------------------- */
+    document.getElementById('whatsapp').addEventListener('input', function() {
+      var v = this.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 7)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      this.value = v;
+    });
+
+    /* --------------------------------------------------
+       Formulário — envio + Pixel Lead
+    -------------------------------------------------- */
+    var WEBHOOK = ''; /* ← Cole aqui o URL do Make / n8n / Google Sheets */
+
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var nome     = document.getElementById('nome').value.trim();
+      var whatsapp = document.getElementById('whatsapp').value.trim();
+      var email    = document.getElementById('email').value.trim();
+      var momento  = document.getElementById('momento').value;
+      var btn      = document.getElementById('submitBtn');
+
+      if (!nome || !whatsapp || !momento) {
+        var campo = !nome ? 'nome' : !whatsapp ? 'WhatsApp' : 'momento da busca';
+        alert('Por favor, preencha o campo: ' + campo);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      var payload = {
+        nome: nome,
+        whatsapp: whatsapp,
+        email: email,
+        momento: momento,
+        imovel: 'Apartamento Savassi 180m²',
+        origem: 'landing-page',
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      };
+
+      function onSuccess() {
+        /* Meta Pixel — Lead */
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Apartamento Savassi 180m²',
+            content_category: 'real_estate',
+            currency: 'BRL',
+            value: 0
+          });
+        }
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('wppSection').style.marginTop = '0';
+        var s = document.getElementById('formSuccess');
+        s.classList.add('show');
+        s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      if (WEBHOOK) {
+        fetch(WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(onSuccess)
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Receber informações';
+          alert('Falha ao enviar. Tente pelo WhatsApp.');
+        });
+      } else {
+        /* Sem webhook configurado — apenas registra e mostra sucesso */
+        console.log('[Excelcium Lead]', payload);
+        onSuccess();
+      }
+    });
+
+    /* --------------------------------------------------
+       Meta Pixel — ViewContent (on load)
+    -------------------------------------------------- */
+    if (typeof fbq === 'function') {
+      fbq('track', 'ViewContent', {
+        content_name: 'Apartamento Savassi 180m²',
+        content_category: 'real_estate',
+        content_type: 'product'
+      });
+    }
+
+    /* --------------------------------------------------
+       Meta Pixel — Contact (WhatsApp clicks)
+    -------------------------------------------------- */
+    ['wppBtn', 'stickyWpp'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', function() {
+        if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: 'WhatsApp CTA' });
+      });
+    });
+  </script>
+</body>
+</html>
