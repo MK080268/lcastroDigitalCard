@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mike Prates | Excelcium Imóveis</title>
+
+<meta name="description" content="Cartão de visita digital de Mike Prates, Sócio-Diretor da Excelcium Imóveis. Adentre no universo da exclusividade e excelência em imóveis.">
+<meta name="author" content="Mike Prates">
+<meta name="theme-color" content="#1c1c1c">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Open Graph / redes sociais -->
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Excelcium Imóveis">
+<meta property="og:title" content="Mike Prates | Sócio-Diretor · Excelcium Imóveis">
+<meta property="og:description" content="Adentre no universo da exclusividade e excelência em imóveis.">
+<meta property="og:image" content="https://i.postimg.cc/dtgtprkW/capa-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mike Prates | Sócio-Diretor · Excelcium Imóveis">
+<meta name="twitter:description" content="Adentre no universo da exclusividade e excelência em imóveis.">
+<meta name="twitter:image" content="https://i.postimg.cc/dtgtprkW/capa-1.jpg">
+
+<link rel="icon" href="https://i.postimg.cc/nV7m3FPf/logo-2.png">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/nV7m3FPf/logo-2.png">
+<link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+<link rel="preload" as="image" href="https://i.postimg.cc/dtgtprkW/capa-1.jpg" fetchpriority="high">
+
+<style>
+  :root {
+    --gold: #a17736;
+    --gold-light: #e0bb7c;
+    --gold-soft: rgba(224, 187, 124, 0.16);
+    --ink: #1c1c1c;
+    --ink-deep: #121212;
+    --text: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.72);
+    --glass: rgba(14, 14, 14, 0.52);
+    --glass-strong: rgba(20, 20, 20, 0.78);
+    --stroke: rgba(224, 187, 124, 0.38);
+    --radius: 14px;
+    --gap: 10px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Inter', Roboto, Arial, sans-serif;
+    background: var(--ink-deep);
+    color: var(--text);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+    line-height: 1.45;
+    overflow-x: hidden;
+  }
+
+  /* Halo dourado de fundo */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -20%;
+    background:
+      radial-gradient(48% 38% at 50% 0%, rgba(161, 119, 54, 0.30), transparent 70%),
+      radial-gradient(42% 42% at 50% 100%, rgba(161, 119, 54, 0.16), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: var(--ink);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(224, 187, 124, 0.20);
+    animation: rise 0.7s var(--ease) both;
+  }
+
+  .card__media {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://i.postimg.cc/dtgtprkW/capa-1.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.04);
+  }
+
+  .card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.68) 45%, rgba(12,12,12,0.94) 100%);
+  }
+
+  .card__body {
+    position: relative;
+    z-index: 2;
+    padding: 30px 22px calc(24px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
+  }
+
+  .name {
+    margin-top: 14px;
+    font-size: clamp(26px, 7.5vw, 30px);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  .role {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-align: center;
+  }
+
+  /* Filete decorativo */
+  .rule {
+    width: 76px;
+    height: 1px;
+    margin: 14px 0 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .tagline {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+    max-width: 30ch;
+    margin-bottom: 6px;
+  }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin-top: 6px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background: var(--glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text);
+    font: inherit;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.15s var(--ease);
+  }
+
+  .btn__icon {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    color: var(--gold-light);
+    transition: color 0.25s var(--ease);
+  }
+
+  .btn__icon svg { width: 100%; height: 100%; display: block; fill: currentColor; }
+
+  .btn__text { flex: 1 1 auto; min-width: 0; }
+
+  .btn__label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .btn__value {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Endereço pode ocupar duas linhas em vez de ser cortado */
+  .btn__value--wrap {
+    white-space: normal;
+    overflow: visible;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .btn:active { transform: scale(0.985); }
+
+  .btn--primary {
+    background: linear-gradient(135deg, var(--gold) 0%, #b98a41 55%, var(--gold-light) 100%);
+    border-color: transparent;
+    color: #17140e;
+    font-weight: 600;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(161, 119, 54, 0.32);
+  }
+
+  .btn--primary .btn__icon { color: #17140e; }
+
+  .btn--ghost { justify-content: center; font-weight: 500; }
+
+  .row { display: flex; gap: var(--gap); width: 100%; }
+  .row > .btn { flex: 1 1 0; }
+
+  @media (hover: hover) {
+    .btn:hover { background-color: var(--gold-soft); border-color: var(--gold-light); }
+    .btn__icon { }
+    .btn:hover .btn__icon { color: #fff; }
+    .btn--primary:hover { filter: brightness(1.07); background-color: transparent; }
+    .btn--primary:hover .btn__icon { color: #17140e; }
+    .social:hover { color: var(--gold-light); border-color: var(--gold-light); transform: translateY(-3px); }
+  }
+
+  :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .social {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--stroke);
+    border-radius: 50%;
+    color: var(--gold);
+    background: var(--glass);
+    text-decoration: none;
+    transition: all 0.25s var(--ease);
+  }
+
+  .social svg { width: 19px; height: 19px; fill: currentColor; display: block; }
+
+  .footnote {
+    margin-top: 18px;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+  }
+
+  /* QR */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(4px);
+  }
+  .modal[open], .modal.is-open { display: flex; }
+
+  .modal__panel {
+    background: var(--glass-strong);
+    border: 1px solid var(--stroke);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+    animation: rise 0.35s var(--ease) both;
+  }
+
+  .modal__title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .modal__hint { font-size: 12px; color: var(--text-dim); margin-bottom: 16px; }
+
+  #qrcode {
+    display: grid;
+    place-items: center;
+    min-height: 200px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+  #qrcode img, #qrcode canvas { display: block; max-width: 100%; height: auto; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(24px + env(safe-area-inset-bottom));
+    transform: translate(-50%, 140%);
+    z-index: 200;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--stroke);
+    background: var(--glass-strong);
+    backdrop-filter: blur(10px);
+    font-size: 14px;
+    opacity: 0;
+    transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+    pointer-events: none;
+  }
+  .toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 360px) {
+    .card__body { padding: 24px 16px; }
+    .logo { width: 128px; }
+    .btn { padding: 12px 14px; font-size: 14px; }
+  }
+
+  @media print {
+    body::before, .card__media, .socials, .modal, .toast { display: none !important; }
+    body { background: #fff; color: #000; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+    .btn { border-color: #999; color: #000; background: none; }
+    .btn__label, .tagline, .footnote { color: #555; }
+    .role { color: #a17736; }
+  }
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="card__media" role="presentation"></div>
+
+  <div class="card__body">
+    <img class="logo" src="https://i.postimg.cc/nV7m3FPf/logo-2.png" alt="Excelcium Imóveis" width="150" height="60" onerror="this.style.display='none'">
+
+    <h1 class="name">Mike Prates</h1>
+    <p class="role">Sócio-Diretor</p>
+    <div class="rule" role="presentation"></div>
+    <p class="tagline">Adentre no universo da exclusividade e excelência em imóveis.</p>
+
+    <nav class="actions" aria-label="Contatos">
+      <a class="btn btn--primary" href="https://wa.me/5531983370467?text=Ol%C3%A1%2C%20Mike!%20Vim%20pelo%20seu%20cart%C3%A3o%20digital." target="_blank" rel="noopener">
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 110.9L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span>
+        <span>Chamar no WhatsApp</span>
+      </a>
+
+      <a class="btn" href="tel:+5531983370467">
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+        <span class="btn__text">
+          <span class="btn__label">Telefone</span>
+          <span class="btn__value">+55 (31) 98337-0467</span>
+        </span>
+      </a>
+
+      <a class="btn" href="mailto:mike@excelciumimoveis.com.br">
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></span>
+        <span class="btn__text">
+          <span class="btn__label">E-mail</span>
+          <span class="btn__value">mike@excelciumimoveis.com.br</span>
+        </span>
+      </a>
+
+      <a class="btn" href="https://excelciumimoveis.com" target="_blank" rel="noopener">
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 42 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 21 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg></span>
+        <span class="btn__text">
+          <span class="btn__label">Site</span>
+          <span class="btn__value">excelciumimoveis.com</span>
+        </span>
+      </a>
+
+      <a class="btn" href="https://maps.google.com/?q=Rua+Santa+Catarina,+1627,+sala+901,+Lourdes,+Belo+Horizonte,+MG" target="_blank" rel="noopener">
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192 384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2 12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></span>
+        <span class="btn__text">
+          <span class="btn__label">Escritório</span>
+          <span class="btn__value btn__value--wrap">R. Santa Catarina, 1627 · sala 901 — Lourdes, BH</span>
+        </span>
+      </a>
+
+      <div class="row">
+        <button class="btn btn--ghost" type="button" id="saveContact">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 640 512"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM544 160c13.3 0 24 10.7 24 24v56h56c13.3 0 24 10.7 24 24s-10.7 24-24 24H568v56c0 13.3-10.7 24-24 24s-24-10.7-24-24V288H464c-13.3 0-24-10.7-24-24s10.7-24 24-24h56V184c0-13.3 10.7-24 24-24z"/></svg></span>
+          <span>Salvar contato</span>
+        </button>
+        <button class="btn btn--ghost" type="button" id="shareCard">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M352 224c53 0 96-43 96-96s-43-96-96-96-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 174.9 121.9 164 96 164c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.9 66.6-28.4l94.1 47c-.5 3.9-.7 7.8-.7 11.9 0 53 43 96 96 96s96-43 96-96-43-96-96-96c-25.9 0-49.4 10.9-66.6 28.4l-94.1-47c.5-3.9.7-7.8.7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.1 326.1 224 352 224z"/></svg></span>
+          <span>Compartilhar</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="socials">
+      <a class="social" href="https://www.instagram.com/excelciumimoveis/" target="_blank" rel="noopener" aria-label="Instagram da Excelcium Imóveis">
+        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+      <a class="social" href="https://www.facebook.com/profile.php?id=61559202156313" target="_blank" rel="noopener" aria-label="Facebook da Excelcium Imóveis">
+        <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+      </a>
+      <button class="social" type="button" id="showQr" aria-label="Mostrar QR Code do cartão">
+        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80zm64 16v64h64V96H64zM0 336c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336zm64 16v64h64v-64H64zM256 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H304c-26.5 0-48-21.5-48-48V80zm64 16v64h64V96H320zM256 288h64v64h-64v-64zm64 64h64v64h-64v-64zm64-64h64v64h-64v-64zm0 128h64v64h-64v-64zm-128 0h64v64h-64v-64z"/></svg>
+      </button>
+    </div>
+
+    <p class="footnote">© <span id="year">2026</span> Excelcium Imóveis · CRECI-MG</p>
+  </div>
+</main>
+
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+  <div class="modal__panel">
+    <h2 class="modal__title" id="qrTitle">Aponte a câmera</h2>
+    <p class="modal__hint">Compartilhe este cartão pessoalmente.</p>
+    <div id="qrcode"></div>
+    <button class="btn btn--ghost" type="button" id="closeQr">Fechar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mike Prates",
+  "jobTitle": "Sócio-Diretor",
+  "telephone": "+5531983370467",
+  "email": "mike@excelciumimoveis.com.br",
+  "url": "https://excelciumimoveis.com",
+  "worksFor": { "@type": "RealEstateAgent", "name": "Excelcium Imóveis" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Santa Catarina, 1627, sala 901",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "postalCode": "30170-088",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://www.instagram.com/excelciumimoveis/",
+    "https://www.facebook.com/profile.php?id=61559202156313"
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var CONTACT = {
+    first: 'Mike',
+    last: 'Prates',
+    org: 'Excelcium Imóveis',
+    title: 'Sócio-Diretor',
+    phone: '+5531983370467',
+    email: 'mike@excelciumimoveis.com.br',
+    url: 'https://excelciumimoveis.com',
+    street: 'Rua Santa Catarina, 1627, sala 901',
+    district: 'Lourdes',
+    city: 'Belo Horizonte',
+    state: 'MG',
+    zip: '30170-088',
+    country: 'Brasil'
+  };
+
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+
+  function toast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toastEl.classList.remove('is-visible');
+    }, 2600);
+  }
+
+  // Escapa vírgula, ponto-e-vírgula e barra invertida conforme RFC 6350.
+  function esc(value) {
+    return String(value).replace(/([\\,;])/g, '\\$1');
+  }
+
+  // So inclui o link do cartao quando ele esta publicado (http/https).
+  function noteText() {
+    var note = 'Bairro ' + CONTACT.district + ', ' + CONTACT.city + '/' + CONTACT.state + '.';
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      note += ' Cartao digital: ' + location.href.split('#')[0];
+    }
+    return note;
+  }
+
+  function buildVCard() {
+    return [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:' + esc(CONTACT.last) + ';' + esc(CONTACT.first) + ';;;',
+      'FN:' + esc(CONTACT.first + ' ' + CONTACT.last),
+      'ORG:' + esc(CONTACT.org),
+      'TITLE:' + esc(CONTACT.title),
+      'TEL;TYPE=CELL,VOICE:' + CONTACT.phone,
+      'EMAIL;TYPE=INTERNET,WORK:' + CONTACT.email,
+      'URL:' + CONTACT.url,
+      'ADR;TYPE=WORK:;;' + esc(CONTACT.street) + ';' + esc(CONTACT.city) + ';' + esc(CONTACT.state) + ';' + CONTACT.zip + ';' + esc(CONTACT.country),
+      'NOTE:' + esc(noteText()),
+      'REV:' + new Date().toISOString().replace(/\.\d{3}/, ''),
+      'END:VCARD'
+    ].join('\r\n');
+  }
+
+  // Blob + download funciona onde data: URIs são bloqueadas (iOS/Android recentes).
+  document.getElementById('saveContact').addEventListener('click', function () {
+    var blob = new Blob([buildVCard()], { type: 'text/vcard;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = 'Mike-Prates-Excelcium.vcf';
+    link.rel = 'noopener';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+    toast('Contato baixado. Abra o arquivo para salvar.');
+  });
+
+  document.getElementById('shareCard').addEventListener('click', async function () {
+    var shareUrl = location.href.split('#')[0];
+    var data = {
+      title: 'Mike Prates | Excelcium Imóveis',
+      text: 'Mike Prates — Sócio-Diretor da Excelcium Imóveis',
+      url: shareUrl
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        return;
+      } catch (err) {
+        if (err && err.name === 'AbortError') return; // usuário cancelou
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast('Link copiado para a área de transferência.');
+    } catch (err) {
+      toast(shareUrl);
+    }
+  });
+
+  // QR gerado localmente: nenhuma dependencia externa, funciona offline.
+  // Gerador de QR Code (modo byte, correcao de erro M, versoes 1-10).
+  function qrMatrix(text) {
+    var BLOCKS = {
+      1:[10,1,16,0,0], 2:[16,1,28,0,0], 3:[26,1,44,0,0], 4:[18,2,32,0,0], 5:[24,2,43,0,0],
+      6:[16,4,27,0,0], 7:[18,4,31,0,0], 8:[22,2,38,2,39], 9:[22,3,36,2,37], 10:[26,4,43,1,44]
+    };
+    var ALIGN = {
+      1:[], 2:[6,18], 3:[6,22], 4:[6,26], 5:[6,30],
+      6:[6,34], 7:[6,22,38], 8:[6,24,42], 9:[6,26,46], 10:[6,28,50]
+    };
+
+    // Tabelas do campo de Galois GF(256).
+    var EXP = new Array(512), LOG = new Array(256), x = 1;
+    for (var i = 0; i < 255; i++) {
+      EXP[i] = x; LOG[x] = i;
+      x <<= 1;
+      if (x & 0x100) x ^= 0x11d;
+    }
+    for (var i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+
+    function mul(a, b) { return (a === 0 || b === 0) ? 0 : EXP[LOG[a] + LOG[b]]; }
+
+    function generator(degree) {
+      var poly = [1];
+      for (var d = 0; d < degree; d++) {
+        var next = new Array(poly.length + 1).fill(0);
+        for (var j = 0; j < poly.length; j++) {
+          next[j] ^= poly[j];
+          next[j + 1] ^= mul(poly[j], EXP[d]);
+        }
+        poly = next;
+      }
+      return poly;
+    }
+
+    function ecCodewords(data, ecLen) {
+      var gen = generator(ecLen);
+      var rem = new Array(ecLen).fill(0);
+      for (var i = 0; i < data.length; i++) {
+        var factor = data[i] ^ rem[0];
+        rem.shift();
+        rem.push(0);
+        for (var j = 0; j < ecLen; j++) rem[j] ^= mul(gen[j + 1], factor);
+      }
+      return rem;
+    }
+
+    // UTF-8
+    var bytes = [];
+    var encoded = unescape(encodeURIComponent(text));
+    for (var i = 0; i < encoded.length; i++) bytes.push(encoded.charCodeAt(i));
+
+    // Menor versao que comporta os dados.
+    var version = 0, spec, totalData;
+    for (var v = 1; v <= 10; v++) {
+      spec = BLOCKS[v];
+      totalData = spec[1] * spec[2] + spec[3] * spec[4];
+      var lenBits = v < 10 ? 8 : 16;
+      if (bytes.length + 2 + Math.ceil(lenBits / 8) <= totalData) { version = v; break; }
+    }
+    if (!version) return null;
+    spec = BLOCKS[version];
+    totalData = spec[1] * spec[2] + spec[3] * spec[4];
+
+    // Fluxo de bits: modo 0100 + tamanho + dados + terminador + padding.
+    var bits = [];
+    function push(value, length) {
+      for (var b = length - 1; b >= 0; b--) bits.push((value >> b) & 1);
+    }
+    push(4, 4);
+    push(bytes.length, version < 10 ? 8 : 16);
+    for (var i = 0; i < bytes.length; i++) push(bytes[i], 8);
+    for (var i = 0; i < 4 && bits.length < totalData * 8; i++) bits.push(0);
+    while (bits.length % 8) bits.push(0);
+
+    var dataCw = [];
+    for (var i = 0; i < bits.length; i += 8) {
+      var byte = 0;
+      for (var j = 0; j < 8; j++) byte = (byte << 1) | bits[i + j];
+      dataCw.push(byte);
+    }
+    var pad = [0xec, 0x11], p = 0;
+    while (dataCw.length < totalData) dataCw.push(pad[p++ % 2]);
+
+    // Divide em blocos e intercala dados + correcao.
+    var blocks = [], ecBlocks = [], offset = 0;
+    var counts = [[spec[1], spec[2]], [spec[3], spec[4]]];
+    for (var g = 0; g < 2; g++) {
+      for (var b = 0; b < counts[g][0]; b++) {
+        var block = dataCw.slice(offset, offset + counts[g][1]);
+        offset += counts[g][1];
+        blocks.push(block);
+        ecBlocks.push(ecCodewords(block, spec[0]));
+      }
+    }
+    var final = [], maxData = Math.max(spec[2], spec[4]);
+    for (var i = 0; i < maxData; i++) {
+      for (var b = 0; b < blocks.length; b++) if (i < blocks[b].length) final.push(blocks[b][i]);
+    }
+    for (var i = 0; i < spec[0]; i++) {
+      for (var b = 0; b < ecBlocks.length; b++) final.push(ecBlocks[b][i]);
+    }
+
+    // Matriz e padroes fixos.
+    var size = version * 4 + 17;
+    var m = [], reserved = [];
+    for (var r = 0; r < size; r++) {
+      m.push(new Array(size).fill(0));
+      reserved.push(new Array(size).fill(false));
+    }
+    function place(r, c, value) {
+      if (r < 0 || c < 0 || r >= size || c >= size) return;
+      m[r][c] = value ? 1 : 0;
+      reserved[r][c] = true;
+    }
+    function finder(row, col) {
+      for (var r = -1; r <= 7; r++) {
+        for (var c = -1; c <= 7; c++) {
+          var inside = r >= 0 && r <= 6 && c >= 0 && c <= 6;
+          var dark = inside && (r === 0 || r === 6 || c === 0 || c === 6 ||
+            (r >= 2 && r <= 4 && c >= 2 && c <= 4));
+          place(row + r, col + c, dark);
+        }
+      }
+    }
+    finder(0, 0); finder(0, size - 7); finder(size - 7, 0);
+
+    for (var i = 8; i < size - 8; i++) {
+      place(6, i, i % 2 === 0);
+      place(i, 6, i % 2 === 0);
+    }
+
+    var centers = ALIGN[version];
+    for (var a = 0; a < centers.length; a++) {
+      for (var b = 0; b < centers.length; b++) {
+        var cr = centers[a], cc = centers[b];
+        if ((cr <= 7 && cc <= 7) || (cr <= 7 && cc >= size - 8) || (cr >= size - 8 && cc <= 7)) continue;
+        for (var r = -2; r <= 2; r++) {
+          for (var c = -2; c <= 2; c++) {
+            place(cr + r, cc + c, Math.max(Math.abs(r), Math.abs(c)) !== 1);
+          }
+        }
+      }
+    }
+
+    place(size - 8, 8, 1); // modulo escuro fixo
+
+    // Reserva area do formato.
+    for (var i = 0; i < 9; i++) { reserved[8][i] = true; reserved[i][8] = true; }
+    for (var i = 0; i < 8; i++) { reserved[8][size - 1 - i] = true; reserved[size - 1 - i][8] = true; }
+    if (version >= 7) {
+      for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 3; j++) { reserved[i][size - 11 + j] = true; reserved[size - 11 + j][i] = true; }
+      }
+    }
+
+    // Preenche os dados em ziguezague.
+    var bitIndex = 0, dir = -1, row = size - 1;
+    for (var col = size - 1; col > 0; col -= 2) {
+      if (col === 6) col--;
+      while (true) {
+        for (var k = 0; k < 2; k++) {
+          var c = col - k;
+          if (!reserved[row][c]) {
+            var bit = 0;
+            if (bitIndex < final.length * 8) {
+              bit = (final[bitIndex >> 3] >> (7 - (bitIndex & 7))) & 1;
+            }
+            m[row][c] = bit;
+            bitIndex++;
+          }
+        }
+        row += dir;
+        if (row < 0 || row >= size) { row -= dir; dir = -dir; break; }
+      }
+    }
+
+    function maskBit(mask, r, c) {
+      switch (mask) {
+        case 0: return (r + c) % 2 === 0;
+        case 1: return r % 2 === 0;
+        case 2: return c % 3 === 0;
+        case 3: return (r + c) % 3 === 0;
+        case 4: return (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0;
+        case 5: return (r * c) % 2 + (r * c) % 3 === 0;
+        case 6: return ((r * c) % 2 + (r * c) % 3) % 2 === 0;
+        default: return ((r + c) % 2 + (r * c) % 3) % 2 === 0;
+      }
+    }
+
+    function bch(value, poly, bits) {
+      var v = value << (bits - 1);
+      for (var i = bits + 4; i >= bits; i--) {
+        if (v & (1 << i)) v ^= poly << (i - bits);
+      }
+      return v;
+    }
+
+    function formatBits(mask) {
+      var data = (0 << 3) | mask; // 00 = nivel M
+      var v = data << 10;
+      for (var i = 14; i >= 10; i--) if (v & (1 << i)) v ^= 0x537 << (i - 10);
+      return ((data << 10) | v) ^ 0x5412;
+    }
+
+    function applyFormat(grid, mask) {
+      var f = formatBits(mask);
+      // Primeira copia: coluna 8 (topo) e linha 8 (esquerda).
+      for (var i = 0; i <= 5; i++) grid[i][8] = (f >> i) & 1;
+      grid[7][8] = (f >> 6) & 1;
+      grid[8][8] = (f >> 7) & 1;
+      grid[8][7] = (f >> 8) & 1;
+      for (var i = 9; i <= 14; i++) grid[8][14 - i] = (f >> i) & 1;
+      // Segunda copia: linha 8 (direita) e coluna 8 (base).
+      for (var i = 0; i <= 7; i++) grid[8][size - 1 - i] = (f >> i) & 1;
+      for (var i = 8; i <= 14; i++) grid[size - 15 + i][8] = (f >> i) & 1;
+      grid[size - 8][8] = 1;
+
+      if (version >= 7) {
+        var v = version << 12;
+        for (var i = 17; i >= 12; i--) if (v & (1 << i)) v ^= 0x1f25 << (i - 12);
+        var vi = (version << 12) | v;
+        for (var i = 0; i < 18; i++) {
+          var bit = (vi >> i) & 1;
+          grid[Math.floor(i / 3)][size - 11 + (i % 3)] = bit;
+          grid[size - 11 + (i % 3)][Math.floor(i / 3)] = bit;
+        }
+      }
+    }
+
+    function penalty(grid) {
+      var score = 0, dark = 0;
+      for (var r = 0; r < size; r++) {
+        for (var c = 0; c < size; c++) {
+          if (grid[r][c]) dark++;
+          // blocos 2x2
+          if (r < size - 1 && c < size - 1) {
+            var s = grid[r][c] + grid[r][c + 1] + grid[r + 1][c] + grid[r + 1][c + 1];
+            if (s === 0 || s === 4) score += 3;
+          }
+        }
+      }
+      // sequencias e padroes 1:1:3:1:1
+      function scanLine(get) {
+        var run = 1, prev = get(0), line = [prev];
+        for (var i = 1; i < size; i++) {
+          var cur = get(i);
+          line.push(cur);
+          if (cur === prev) { run++; } else { if (run >= 5) score += run - 2; run = 1; prev = cur; }
+        }
+        if (run >= 5) score += run - 2;
+        var pat1 = [1,0,1,1,1,0,1,0,0,0,0], pat2 = [0,0,0,0,1,0,1,1,1,0,1];
+        for (var i = 0; i + 11 <= size; i++) {
+          var a = true, b = true;
+          for (var j = 0; j < 11; j++) {
+            if (line[i + j] !== pat1[j]) a = false;
+            if (line[i + j] !== pat2[j]) b = false;
+          }
+          if (a) score += 40;
+          if (b) score += 40;
+        }
+      }
+      for (var r = 0; r < size; r++) scanLine((function (rr) { return function (i) { return grid[rr][i]; }; })(r));
+      for (var c = 0; c < size; c++) scanLine((function (cc) { return function (i) { return grid[i][cc]; }; })(c));
+
+      var pct = dark * 100 / (size * size);
+      score += Math.floor(Math.abs(pct - 50) / 5) * 10;
+      return score;
+    }
+
+    var best = null, bestScore = Infinity;
+    for (var mask = 0; mask < 8; mask++) {
+      var grid = m.map(function (r) { return r.slice(); });
+      for (var r = 0; r < size; r++) {
+        for (var c = 0; c < size; c++) {
+          if (!reserved[r][c] && maskBit(mask, r, c)) grid[r][c] ^= 1;
+        }
+      }
+      applyFormat(grid, mask);
+      var s = penalty(grid);
+      if (s < bestScore) { bestScore = s; best = grid; }
+    }
+    return best;
+  }
+
+  var modal = document.getElementById('qrModal');
+  var qrBox = document.getElementById('qrcode');
+  var qrDone = false;
+  var lastFocus = null;
+
+  function renderQr() {
+    if (qrDone) return;
+    var url = location.href.split('#')[0];
+    var matrix = qrMatrix(url);
+    if (!matrix) {
+      qrBox.style.background = 'transparent';
+      qrBox.textContent = 'Endereço longo demais para gerar o QR Code.';
+      return;
+    }
+    var quiet = 4;
+    var cells = matrix.length + quiet * 2;
+    var scale = Math.max(4, Math.floor(200 / cells));
+    var px = cells * scale;
+    var ratio = window.devicePixelRatio || 1;
+    var canvas = document.createElement('canvas');
+    canvas.width = px * ratio;
+    canvas.height = px * ratio;
+    canvas.style.width = px + 'px';
+    canvas.style.height = px + 'px';
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute('aria-label', 'QR Code com o endereço deste cartão');
+    var ctx = canvas.getContext('2d');
+    ctx.scale(ratio, ratio);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, px, px);
+    ctx.fillStyle = '#1c1c1c';
+    for (var r = 0; r < matrix.length; r++) {
+      for (var c = 0; c < matrix.length; c++) {
+        if (matrix[r][c]) ctx.fillRect((c + quiet) * scale, (r + quiet) * scale, scale, scale);
+      }
+    }
+    qrBox.textContent = '';
+    qrBox.appendChild(canvas);
+    qrDone = true;
+  }
+
+  function openModal() {
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open');
+    renderQr();
+    document.getElementById('closeQr').focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.getElementById('showQr').addEventListener('click', openModal);
+  document.getElementById('closeQr').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
